@@ -58,3 +58,12 @@ body {
       margin-top: 20px;
 
   }
+
+  .win, .lose {
+      justify-content: space-around;
+  }
+
+  #restart-buttonLose, #restart-buttonWin {
+    background-color: #008080;
+    color: white;
+  }

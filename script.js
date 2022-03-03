@@ -16,7 +16,6 @@ let restartBtnLose = document.querySelector("#restart-buttonLose");
 
 //// character variables ////
 
-
 let ufoHeight = 225;
 let ufoWidth = 225;
 
@@ -39,64 +38,123 @@ let mrPB;
 let lincoler;
 let birdPerson;
 
-let backgroundMusic = new Audio("sounds/BackgroundMusic.mp3")
-backgroundMusic.volume=0.2
-let winSound = new Audio("sounds/GetSchwiftSong.mp3")
-winSound.volume=0.2
-let loseSound = new Audio("sounds/EvilEndSong.mp3")
-loseSound.volume=0.2
+let backgroundMusic = new Audio("sounds/BackgroundMusic.mp3");
+backgroundMusic.volume = 0.2;
+let winSound = new Audio("sounds/GetSchwiftSong.mp3");
+winSound.volume = 0.2;
+let loseSound = new Audio("sounds/EvilEndSong.mp3");
+loseSound.volume = 0.2;
+
+let asteroidSound = new Audio("sounds/asteroidhit.mp3");
+asteroidSound.volume = 0.2;
 
 let rickSound = new Audio("sounds/wubaluba.mp3");
-
 let mortySound = new Audio("sounds/morty.mp3");
-
 let jerrySound = new Audio("sounds/jerry.mp3");
-
 let squanchySound = new Audio("sounds/squanchy.mp3");
-
 let meeseeksSound = new Audio("sounds/Meeseeks.mp3");
-
 let picklerickSound = new Audio("sounds/PickleRick.mp3");
-
 let snufflesSound = new Audio("sounds/snuffles.mp3");
-
 let mrPBSound = new Audio("sounds/mrpb.mp3");
-
 let lincolerSound = new Audio("sounds/lincoler.mp3");
-
 let birdPersonSound = new Audio("sounds/birdperson.mp3");
 
-
 let asteroidArr = [];
-
 let charactersArr = [];
 
-function reset () {
+function reset() {
   charactersArr = [
-    { x: Math.floor(Math.random() * 1000), y: -100, img: rick,name:'rick', sound: rickSound },
-    { x: Math.floor(Math.random() * 1000), y: -00, img: morty,name:'morty', sound: mortySound  },
-    { x: Math.floor(Math.random() * 1000), y: -6000, img: jerry,name:'jerry', sound: jerrySound },
-    { x: Math.floor(Math.random() * 1000), y: -7000, img: squanchy,name:'squanchy', sound: squanchySound },
-    { x: Math.floor(Math.random() * 1000), y: -6500, img: meeseeks,name:'meeseeks', sound: meeseeksSound },
-    { x: Math.floor(Math.random() * 1000), y: -8000, img: picklerick,name:'picklerick', sound: picklerickSound },
-    { x: Math.floor(Math.random() * 1000), y: -3000, img: snuffles,name:'snuffles', sound: snufflesSound },
-    { x: Math.floor(Math.random() * 1000), y: -2750, img: mrPB,name:'mrPB', sound: mrPBSound },
-    { x: Math.floor(Math.random() * 1000), y: -9000, img: lincoler,name:'lincoler', sound: lincolerSound },
-    { x: Math.floor(Math.random() * 1000), y: -9000, img: birdPerson,name:'birdPerson', sound: birdPersonSound }
-
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -400,
+      img: rick,
+      name: "rick",
+      sound: rickSound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -1000,
+      img: morty,
+      name: "morty",
+      sound: mortySound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -1750,
+      img: jerry,
+      name: "jerry",
+      sound: jerrySound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -2300,
+      img: squanchy,
+      name: "squanchy",
+      sound: squanchySound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -3000,
+      img: meeseeks,
+      name: "meeseeks",
+      sound: meeseeksSound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -3700,
+      img: picklerick,
+      name: "picklerick",
+      sound: picklerickSound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -4200,
+      img: snuffles,
+      name: "snuffles",
+      sound: snufflesSound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -5000,
+      img: mrPB,
+      name: "mrPB",
+      sound: mrPBSound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -6000,
+      img: lincoler,
+      name: "lincoler",
+      sound: lincolerSound,
+    },
+    {
+      x: Math.floor(Math.random() * 1000),
+      y: -7000,
+      img: birdPerson,
+      name: "birdPerson",
+      sound: birdPersonSound,
+    },
   ];
-  charactersArr.forEach((character)=>{character.sound.volume=0.2})
+  charactersArr.forEach((character) => {
+    character.sound.volume = 0.2;
+  });
   asteroidArr = [
-    { x: Math.floor(Math.random() * 1000), y: -200 },
-    // { x: Math.floor(Math.random() * 1000), y: -400 },
-    // { x: Math.floor(Math.random() * 1000), y: -600 },
-    // { x: Math.floor(Math.random() * 1000), y: -800 },
-    // { x: Math.floor(Math.random() * 1000), y: -1000 },
-    // { x: Math.floor(Math.random() * 1000), y: -1200 },
-    // { x: Math.floor(Math.random() * 1000), y: -1400 },
-    // { x: Math.floor(Math.random() * 1000), y: -1600 },
+    { x: Math.floor(Math.random() * 1100), y: -200 },
+    { x: Math.floor(Math.random() * 1100), y: -400 },
+    { x: Math.floor(Math.random() * 1100), y: -600 },
+    { x: Math.floor(Math.random() * 1100), y: -800 },
+    { x: Math.floor(Math.random() * 1100), y: -1100 },
+    { x: Math.floor(Math.random() * 1100), y: -1200 },
+    { x: Math.floor(Math.random() * 1100), y: -1400 },
+    { x: Math.floor(Math.random() * 1100), y: -1600 },
+    { x: Math.floor(Math.random() * 1100), y: -1600 },
+    { x: Math.floor(Math.random() * 1100), y: -2500 },
+    { x: Math.floor(Math.random() * 1100), y: -3000 },
+    { x: Math.floor(Math.random() * 1100), y: -3500 },
+    { x: Math.floor(Math.random() * 1100), y: -4000 },
+    { x: Math.floor(Math.random() * 1100), y: -4000 },
   ];
-} 
+}
 
 function preload() {
   bg = loadImage("images/Space-Background.jpg");
@@ -113,10 +171,7 @@ function preload() {
   lincoler = loadImage("images/Abrodolph Lincoler.png");
   birdPerson = loadImage("images/Birdperson.png");
 
-  // // soundFormats('mp3');
-  // rickSound = loadSound ('sounds/wubaluba.mp3');
   reset();
-
 }
 
 function setup() {
@@ -146,14 +201,15 @@ function draw() {
       asteroidWidth,
       asteroidHeight
     );
-    currentAsteroid.y += 2;
+    currentAsteroid.y += 5;
 
     if (
       currentAsteroid.y + 200 <= mouseY + ufoHeight && //top of asteroid?
       currentAsteroid.y + asteroidHeight >= mouseY && //bottom of asteroid?
-      currentAsteroid.x + 20 + asteroidWidth   >= mouseX  && // left of UFO?
+      currentAsteroid.x + 20 + asteroidWidth >= mouseX && // left of UFO?
       currentAsteroid.x + 200 <= mouseX + ufoWidth // right?
     ) {
+      asteroidSound.play();
       endGameLose();
     }
 
@@ -175,18 +231,20 @@ function draw() {
     currentCharacter.y += 5;
 
     if (
-      currentCharacter.y + 220 <= mouseY + ufoHeight  &&
+      currentCharacter.y + 220 <= mouseY + ufoHeight &&
       currentCharacter.y + characterHeight >= mouseY &&
-      currentCharacter.x + characterWidth  >= mouseX && // right of UFO
-      currentCharacter.x + 175  <= mouseX + ufoWidth //left of UFO
+      currentCharacter.x + characterWidth >= mouseX && // right of UFO
+      currentCharacter.x + 175 <= mouseX + ufoWidth //left of UFO
     ) {
       score++;
-      currentCharacter.y = -200;
-      
-      const character = charactersArr.find((char)=>{return char.name===currentCharacter.name})
-      character.sound.play()
-      
-      if (score === 5 ){
+      currentCharacter.y = -7000;
+
+      const character = charactersArr.find((char) => {
+        return char.name === currentCharacter.name;
+      });
+      character.sound.play();
+
+      if (score === 10) {
         endGameWin();
       }
     }
@@ -218,7 +276,6 @@ function endGameWin() {
 }
 
 window.addEventListener("load", () => {
-  
   gamePlay.style.display = "none";
   gameOverWin.style.display = "none";
   gameOverLose.style.display = "none";
@@ -235,22 +292,23 @@ startBtn.addEventListener("click", () => {
 });
 
 restartBtnWin.addEventListener("click", () => {
+  winSound.pause();
+  loseSound.pause();
   backgroundMusic.play();
   gameIntro.style.display = "none";
   gamePlay.style.display = "flex";
   gameOverWin.style.display = "none";
   gameOverLose.style.display = "none";
 
-
   gameIsOver = false;
   score = 0;
-  
-  reset()
-  
+  reset();
   loop();
 });
 
 restartBtnLose.addEventListener("click", () => {
+  winSound.pause();
+  loseSound.pause();
   backgroundMusic.play();
   gameIntro.style.display = "none";
   gamePlay.style.display = "flex";
@@ -259,9 +317,6 @@ restartBtnLose.addEventListener("click", () => {
 
   gameIsOver = false;
   score = 0;
-  reset()
-
-  //ufo = mouseX , mouseY
-  
+  reset();
   loop();
 });

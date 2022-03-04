@@ -56,6 +56,8 @@ body {
       background-color: #008080;
       color: white;
       margin-top: 20px;
+      width: 10%;
+      border-radius: 12px
 
   }
 
@@ -66,4 +68,6 @@ body {
   #restart-buttonLose, #restart-buttonWin {
     background-color: #008080;
     color: white;
+    width: 10%;
+    border-radius: 12px
   }
